@@ -30,25 +30,28 @@ class MenuViewController: UIViewController {
     var senderTitle = "0"
     var quizBrain = QuizBrain()
     var timer = Timer()
-
+    //    var viewUtility = ViewUtility()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        aHundreadTwoEightButton.tag = 1
-        sixtyFourButton.tag = 2
-        thirtyTwoButton.tag = 3
-        sixteenButton.tag = 4
-        eightButton.tag = 5
-        fourButton.tag = 6
-        twoButton.tag = 7
-        oneButton.tag = 8
+        //        aHundreadTwoEightButton.tag = 1
+        //        sixtyFourButton.tag = 2
+        //        thirtyTwoButton.tag = 3
+        //        sixteenButton.tag = 4
+        //        eightButton.tag = 5
+        //        fourButton.tag = 6
+        //        twoButton.tag = 7
+        //        oneButton.tag = 8
         
+        //        print(aHundreadTwoEightButton.tag)
         quizDecNumber.text = quizBrain.makeQuiz()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
     }
     
     
     @IBAction func BynaryPressed(_ sender: UIButton) {
+        
         
         if sender.currentTitle == "0" {
             senderTitle = "1"
@@ -80,12 +83,12 @@ class MenuViewController: UIViewController {
             aHundreadTwoEightButton.setTitle(quizBrain.byteArr[0], for: .normal)
             
             userAnswerLabel.text = quizBrain.ansDecNumber
-
+            
         }
     }
     
     func createButton() {
-  
+        
         let wrapWidth = wrapView.frame.width
         let wrapHight = wrapView.frame.height
         let timeUpButton = UIButton(type: .system)
@@ -109,82 +112,4 @@ class MenuViewController: UIViewController {
             createButton()
         }
     }
-    
-    
-}
-
-extension UIView {
-    
-    /// 枠線の色
-    @IBInspectable var borderColor: UIColor? {
-        get {
-            return layer.borderColor.map { UIColor(cgColor: $0) }
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
-    }
-    
-    /// 枠線のWidth
-    @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    /// 角丸の大きさ
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-    }
-    
-    /// 影の色
-    @IBInspectable var shadowColor: UIColor? {
-        get {
-            return layer.shadowColor.map { UIColor(cgColor: $0) }
-        }
-        set {
-            layer.shadowColor = newValue?.cgColor
-            layer.masksToBounds = false
-        }
-    }
-    
-    /// 影の透明度
-    @IBInspectable var shadowAlpha: Float {
-        get {
-            return layer.shadowOpacity
-        }
-        set {
-            layer.shadowOpacity = newValue
-        }
-    }
-    
-    /// 影のオフセット
-    @IBInspectable var shadowOffset: CGSize {
-        get {
-            return layer.shadowOffset
-        }
-        set {
-            layer.shadowOffset = newValue
-        }
-    }
-    
-    /// 影のぼかし量
-    @IBInspectable var shadowRadius: CGFloat {
-        get {
-            return layer.shadowRadius
-        }
-        set {
-            layer.shadowRadius = newValue
-        }
-    }
-    
 }

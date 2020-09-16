@@ -18,7 +18,9 @@ class TopPageController: UIViewController {
     private var observers: (player: NSObjectProtocol,
     willEnterForeground: NSObjectProtocol,
     bounds: NSKeyValueObservation)?
-    
+ 
+    var viewUtility = ViewUtility()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +28,8 @@ class TopPageController: UIViewController {
         playMovie.play()
         createLayer(player: playMovie.player)
         
-        makeShadow(buttonEle: startButton)
-        makeShadow(buttonEle: settingButton)
+        viewUtility.makeShadow(buttonEle: startButton)
+        viewUtility.makeShadow(buttonEle: settingButton)
     }
     
     
@@ -36,12 +38,7 @@ class TopPageController: UIViewController {
     }
     
     
-    func makeShadow(buttonEle: UIView) {
-        buttonEle.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        buttonEle.layer.shadowColor = UIColor.green.cgColor
-        buttonEle.layer.shadowOpacity = 1.0
-        buttonEle.layer.shadowRadius = 5
-    }
+
     
     
     func createLayer(player: AVPlayer){

@@ -13,8 +13,8 @@ struct QuizBrain {
     var byteArr = ["0", "0", "0", "0", "0", "0", "0", "0"]
     var quizDecNumber = "256"
     var ansDecNumber = "0"
-    var currentTime = Float(3)
-    let time = Float(3)
+    var currentTime = Float(60)
+    let time = Float(60)
 
     mutating func resetQuiz() {
         byteArr = ["0", "0", "0", "0", "0", "0", "0", "0"]
