@@ -16,15 +16,19 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func createButton() {
+        
+        let wrapWidth = view.frame.width
+        let wrapHight = view.frame.height
+        let timeUpButton = UIButton(type: .system)
+        timeUpButton.frame = CGRect(x: 0, y: 0, width: wrapWidth, height: wrapHight)
+        timeUpButton.setTitle("TIME UP!", for: .normal)
+        timeUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 50)
+        timeUpButton.contentHorizontalAlignment = .center
+        timeUpButton.layer.zPosition = 1002
+        timeUpButton.setTitleColor(UIColor.white, for: .normal)
+        view.addSubview(timeUpButton)
     }
-    */
 
 }
