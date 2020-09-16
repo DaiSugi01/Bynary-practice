@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A62A9332511D3A800424A09 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A62A9322511D3A800424A09 /* ResultViewController.swift */; };
 		1E18B666250DE08F005FD7AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18B665250DE08F005FD7AD /* AppDelegate.swift */; };
 		1E18B668250DE08F005FD7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18B667250DE08F005FD7AD /* SceneDelegate.swift */; };
 		1E18B66A250DE08F005FD7AD /* TopPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E18B669250DE08F005FD7AD /* TopPageController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A62A9322511D3A800424A09 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		1E18B662250DE08F005FD7AD /* ConvertNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E18B665250DE08F005FD7AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E18B667250DE08F005FD7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				1E18B669250DE08F005FD7AD /* TopPageController.swift */,
 				1E18B6A9250F3517005FD7AD /* MenuViewController.swift */,
+				0A62A9322511D3A800424A09 /* ResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				1E18B6AA250F3518005FD7AD /* MenuViewController.swift in Sources */,
 				1E18B666250DE08F005FD7AD /* AppDelegate.swift in Sources */,
 				1E18B668250DE08F005FD7AD /* SceneDelegate.swift in Sources */,
+				0A62A9332511D3A800424A09 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

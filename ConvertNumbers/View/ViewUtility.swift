@@ -10,9 +10,9 @@ import UIKit
 
 struct ViewUtility {
     
-    func makeShadow(buttonEle: UIView) {
+    func makeShadow(buttonEle: UIView, color: UIColor) {
         buttonEle.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        buttonEle.layer.shadowColor = UIColor.green.cgColor
+        buttonEle.layer.shadowColor = color.cgColor
         buttonEle.layer.shadowOpacity = 1.0
         buttonEle.layer.shadowRadius = 5
     }

@@ -28,17 +28,14 @@ class TopPageController: UIViewController {
         playMovie.play()
         createLayer(player: playMovie.player)
         
-        viewUtility.makeShadow(buttonEle: startButton)
-        viewUtility.makeShadow(buttonEle: settingButton)
+        viewUtility.makeShadow(buttonEle: startButton, color: UIColor.green)
+        viewUtility.makeShadow(buttonEle: settingButton, color: UIColor.green)
     }
     
     
     @IBAction func startButtonPrresed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToMenu", sender: self)
     }
-    
-    
-
     
     
     func createLayer(player: AVPlayer){

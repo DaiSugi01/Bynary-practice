@@ -10,6 +10,8 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet weak var questionNumber: UILabel!
+    
     @IBOutlet weak var progressBar: UIProgressView!
     
     @IBOutlet weak var oneButton: UIButton!
@@ -30,21 +32,11 @@ class MenuViewController: UIViewController {
     var senderTitle = "0"
     var quizBrain = QuizBrain()
     var timer = Timer()
-    //    var viewUtility = ViewUtility()
+    var viewUtility = ViewUtility()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        aHundreadTwoEightButton.tag = 1
-        //        sixtyFourButton.tag = 2
-        //        thirtyTwoButton.tag = 3
-        //        sixteenButton.tag = 4
-        //        eightButton.tag = 5
-        //        fourButton.tag = 6
-        //        twoButton.tag = 7
-        //        oneButton.tag = 8
-        
-        //        print(aHundreadTwoEightButton.tag)
         quizDecNumber.text = quizBrain.makeQuiz()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
     }
@@ -72,6 +64,7 @@ class MenuViewController: UIViewController {
         if quizBrain.checkAnswer() {
             quizBrain.resetQuiz()
             quizDecNumber.text = quizBrain.makeQuiz()
+            questionNumber.text = quizBrain.getQuizNumber()
             
             oneButton.setTitle(quizBrain.byteArr[7], for: .normal)
             twoButton.setTitle(quizBrain.byteArr[6], for: .normal)
@@ -83,25 +76,39 @@ class MenuViewController: UIViewController {
             aHundreadTwoEightButton.setTitle(quizBrain.byteArr[0], for: .normal)
             
             userAnswerLabel.text = quizBrain.ansDecNumber
-            
         }
     }
     
     func createButton() {
         
-        let wrapWidth = wrapView.frame.width
-        let wrapHight = wrapView.frame.height
+        createLayerForGaminngPage()
+        let wrapWidth = view.frame.width
+        let wrapHight = view.frame.height
         let timeUpButton = UIButton(type: .system)
         timeUpButton.frame = CGRect(x: 0, y: 0, width: wrapWidth, height: wrapHight)
         timeUpButton.setTitle("TIME UP!", for: .normal)
         timeUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 50)
         timeUpButton.contentHorizontalAlignment = .center
-        timeUpButton.addTarget(self, action: #selector(dismissPage), for: UIControl.Event.touchUpInside)
+        timeUpButton.addTarget(self, action: #selector(moveToResult), for: UIControl.Event.touchUpInside)
+        timeUpButton.layer.zPosition = 1002
+        timeUpButton.setTitleColor(UIColor.white, for: .normal)
+        viewUtility.makeShadow(buttonEle: timeUpButton, color: UIColor.green)
         view.addSubview(timeUpButton)
     }
     
-    @objc func dismissPage(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    func createLayerForGaminngPage() {
+        // 動画の上に重ねる半透明の黒いレイヤー
+        let dimOverlay = CALayer()
+        dimOverlay.frame = view.bounds
+        dimOverlay.backgroundColor = UIColor.black.cgColor
+        dimOverlay.zPosition = 1001
+        dimOverlay.opacity = 0.4 // 不透明度
+        view.layer.insertSublayer(dimOverlay, at: 0)
+    }
+    
+    @objc func moveToResult(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToResult", sender: self)
+//        dismiss(animated: true, completion: nil)
     }
     
     @objc func updateProgress() {
